@@ -16,8 +16,7 @@
 "use client"
 
 import type React from "react"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import type * as THREE_NS from 'three'
+import { useCallback, useMemo, useEffect, useState } from "react"
 
 /**
  * Brand tokens
@@ -77,7 +76,7 @@ export default function Page() {
   return (
     <main
       style={{
-        backgroundColor: brand.bg,
+        backgroundColor: 'transparent',
         color: brand.fg,
         fontFamily:
           'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -138,90 +137,16 @@ function Nav({ items }: { items: NavItem[] }) {
 }
 
 /**
- * Hero with WebGPU Attractors
+ * Hero Section
  */
 function HeroAttractors() {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const [backend, setBackend] = useState<'pending' | 'webgpu' | 'webgl' | 'none'>('pending')
-  const rendererHandleRef = useRef<{ stop: () => void; reset?: () => void; setHelpersVisible?: (v: boolean) => void } | null>(null)
-
   const scrollToProjects = useCallback(() => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }, [])
-
-  useEffect(() => {
-    let cleanup: (() => void) | null = null
-
-    const supportsWebGL2 = () => {
-      try {
-        const c = document.createElement('canvas')
-        return !!c.getContext('webgl2')
-      } catch {
-        return false
-      }
-    }
-
-    async function initWebGPU(root: HTMLDivElement) {
-      const mod = await import('@/renderers/webgpu-example-attractors')
-      const handle = await mod.start(root)
-      rendererHandleRef.current = handle
-      cleanup = () => handle.stop()
-    }
-
-    async function initWebGL(root: HTMLDivElement) {
-      const mod = await import('@/renderers/webgl-gpgpu-attractors')
-      const handle = await mod.start(root)
-      rendererHandleRef.current = handle
-      cleanup = () => handle.stop()
-    }
-
-    async function init() {
-      const root = containerRef.current
-      if (!root) return
-
-      try {
-        if (typeof navigator !== 'undefined' && 'gpu' in navigator) {
-          await initWebGPU(root)
-          setBackend('webgpu')
-          return
-        }
-      } catch {
-        // fall through to WebGL
-      }
-
-      try {
-        if (supportsWebGL2()) {
-          await initWebGL(root)
-          setBackend('webgl')
-          return
-        }
-      } catch {
-        // ignore
-      }
-
-      setBackend('none')
-    }
-
-    init()
-    return () => {
-      try {
-        try {
-          rendererHandleRef.current = null
-          cleanup?.()
-        } catch {}
-      } catch {}
-    }
   }, [])
 
   return (
     <section id="home" className="relative min-h-screen">
       <div className="absolute inset-0 -z-10">
-        <div
-          ref={containerRef}
-          className="absolute inset-0 overflow-hidden"
-          role="img"
-          aria-label="Interactive visualization"
-        />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"

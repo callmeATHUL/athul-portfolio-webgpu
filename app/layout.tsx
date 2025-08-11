@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-import dynamic from 'next/dynamic'
+import BackgroundCanvas, { BackgroundControls } from '@/components/BackgroundCanvas'
 
 export const metadata: Metadata = {
   title: 'Syntax Mind — Portfolio',
@@ -19,10 +19,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const BackgroundCanvas = dynamic(() => import('@/components/BackgroundCanvas').then(m => m.default), { ssr: false })
-  const BackgroundControls = dynamic(() => import('@/components/BackgroundCanvas').then(m => m.BackgroundControls), { ssr: false })
   return (
-    <html lang="en">
+    <html lang="en" className="dark bg-black">
       <head>
         <style>{`
 html {
@@ -32,10 +30,12 @@ html {
 }
         `}</style>
       </head>
-      <body>
+      <body className="bg-black text-white">
         <BackgroundCanvas />
         <BackgroundControls />
-        {children}
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   )
