@@ -182,7 +182,7 @@ export default function BackgroundCanvas() {
     <RendererContext.Provider value={rendererHandle}>
       <div 
         ref={containerRef} 
-        className="pointer-events-none fixed inset-0 z-0"
+        className="pointer-events-none fixed inset-0 z-10"
         aria-hidden="true"
       />
     </RendererContext.Provider>

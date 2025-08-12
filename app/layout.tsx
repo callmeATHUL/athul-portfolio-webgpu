@@ -37,7 +37,7 @@ html {
       <body className="bg-black text-white">
         <BackgroundCanvas />
         <BackgroundControls />
-        <div className="relative z-10">
+        <div className="relative z-20">
           {children}
         </div>
       </body>
