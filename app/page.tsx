@@ -156,25 +156,31 @@ function HeroAttractors() {
           }}
         />
       </div>
-      <div className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center px-6 pt-24 pb-12 md:pt-32">
-        <h1 className="font-display text-gradient text-glow text-center text-4xl md:text-6xl font-semibold tracking-tight">
-          ATHUL P SUDHEER
-        </h1>
-        <p className="mt-2 text-center text-sm md:text-base opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
-          JAVA FULLSTACK DEVELOPER • TECHNICAL PRODUCTION SUPPORT at Al Rajhi Bank — Riyadh, Saudi Arabia (On‑site)
-        </p>
-        <p className="mt-4 max-w-2xl text-center opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
-          Full‑stack applications, secure APIs, <span className="whitespace-nowrap">3D modern UI</span>, and workflow automation.
-        </p>
-        <div className="mt-6">
-          <button
-            onClick={scrollToProjects}
-            className="neon-btn rounded-full px-6 py-2 text-sm font-semibold shadow transition-transform"
-            aria-label="View Projects"
-          >
-            View Projects
-          </button>
+      <div className="mx-auto grid min-h-[70vh] max-w-6xl grid-cols-1 items-center gap-6 px-6 pt-24 pb-12 md:grid-cols-[220px_1fr_220px] md:pt-32">
+        <aside className="hidden md:flex flex-col gap-6 opacity-85">
+          <div className="text-xs uppercase hero-kicker">Profile</div>
+          <div className="hero-stat text-sm">Riyadh, SA</div>
+          <div className="hero-stat text-sm">3+ yrs exp</div>
+          <div className="hero-stat text-sm">APIs • 3D UI • Automation</div>
+        </aside>
+        <div className="text-center md:text-left">
+          <div className="hero-kicker uppercase">JAVA FULLSTACK • PRODUCTION SUPPORT</div>
+          <h1 className="font-hero text-glow text-center md:text-left text-5xl md:text-7xl tracking-[0.18em]">
+            ATHUL P SUDHEER
+          </h1>
+          <p className="mt-3 max-w-2xl opacity-95 md:text-base text-sm" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+            Al Rajhi Bank — Riyadh, Saudi Arabia (On‑site). Full‑stack apps, secure APIs, <span className="whitespace-nowrap">3D modern UI</span>, and workflow automation.
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-3 md:justify-start">
+            <button onClick={scrollToProjects} className="neon-btn rounded-full px-6 py-2 text-sm font-semibold shadow">View Projects</button>
+            <a href="#contact" className="rounded-full border px-6 py-2 text-sm" style={{borderColor:'rgba(255,255,255,.2)', background:'rgba(0,0,0,.35)'}}>Contact</a>
+          </div>
         </div>
+        <aside className="hidden md:flex flex-col items-end gap-6 opacity-85">
+          <div className="text-xs uppercase hero-kicker">Status</div>
+          <div className="hero-stat text-sm">Open to collab</div>
+          <div className="hero-stat text-sm">Email ↗</div>
+        </aside>
       </div>
     </section>
   )

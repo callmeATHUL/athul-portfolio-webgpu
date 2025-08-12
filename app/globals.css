@@ -158,6 +158,12 @@
     background-clip: text;
     color: transparent;
   }
+  .font-hero {
+    font-family: var(--font-hero), var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: .14em;
+  }
+  .hero-kicker { letter-spacing: .35em; font-size: .7rem; opacity: .8 }
+  .hero-stat { font-variant-numeric: tabular-nums; }
 
   /* Premium UI helpers */
   .text-glow {
