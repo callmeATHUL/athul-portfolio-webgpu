@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark bg-black ${Display.variable} ${HeroDisplay.variable}`}>
+    <html lang="en" className={`${Display.variable} ${HeroDisplay.variable}`}>
       <head>
         <style>{`
 html {
@@ -47,7 +47,7 @@ html {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData as any) }}
         />
       </head>
-      <body className="bg-black text-white">
+      <body className="bg-white text-black">
         {/* Background canvas sits behind content */}
         <BackgroundCanvas />
         <div className="relative z-20">
