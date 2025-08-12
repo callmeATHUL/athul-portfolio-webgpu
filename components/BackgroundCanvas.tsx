@@ -30,6 +30,7 @@ export default function BackgroundCanvas() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [rendererHandle, setRendererHandle] = useState<RendererHandle | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
 
   // WebGL2 support check
   const supportsWebGL2 = useCallback(() => {
@@ -85,6 +86,9 @@ export default function BackgroundCanvas() {
     if (handle) {
       setRendererHandle(handle)
       setIsInitialized(true)
+      setErrorMsg(null)
+    } else {
+      setErrorMsg('GPU not available — falling back disabled')
     }
   }, [initWebGPU, initWebGL, supportsWebGL2, isInitialized])
 
@@ -185,6 +189,11 @@ export default function BackgroundCanvas() {
         className="pointer-events-none fixed inset-0 z-10"
         aria-hidden="true"
       />
+      {errorMsg && (
+        <div className="fixed left-3 bottom-3 z-30 rounded-md border border-white/10 bg-black/60 px-3 py-1 text-xs">
+          {errorMsg}
+        </div>
+      )}
     </RendererContext.Provider>
   )
 }
@@ -216,7 +225,7 @@ export function BackgroundControls() {
   if (!rendererHandle) return null
 
   return (
-    <div className="fixed right-3 bottom-3 z-10 flex gap-2 rounded-full bg-black/40 p-1 text-xs backdrop-blur-sm">
+    <div className="fixed right-3 bottom-3 z-30 flex gap-2 rounded-full bg-black/40 p-1 text-xs backdrop-blur-sm">
       <button 
         onClick={isPaused ? handleResume : handlePause}
         className="rounded-full px-2 py-1 hover:bg-white/10 transition-colors"
@@ -231,6 +240,7 @@ export function BackgroundControls() {
       >
         Stop
       </button>
+      <div className="hidden md:block rounded-full px-2 py-1 opacity-80">{rendererHandle.backend.toUpperCase()} · DPR {Math.min(window.devicePixelRatio || 1, 2)}</div>
     </div>
   )
 }
