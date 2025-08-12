@@ -26,6 +26,13 @@ export async function start(container: HTMLDivElement): Promise<RendererHandle> 
     position: 'absolute',
     inset: '0',
     width: '100%',
+    height: '100%',
+    background: 'transparent',
+  })
+  Object.assign(renderer.domElement.style, {
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
     height: '100%'
   })
 

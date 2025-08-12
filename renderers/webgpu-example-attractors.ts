@@ -23,8 +23,17 @@ export async function start(container: HTMLDivElement): Promise<RendererHandle> 
   camera.position.set(3, 5, 8)
 
   const renderer: any = new (THREE as any).WebGPURenderer({ antialias: true, alpha: true })
+  // Ensure transparent clear for overlay use-cases
+  ;(renderer as any).setClearAlpha?.(0)
   renderer.setClearColor('#000000')
   container.appendChild(renderer.domElement)
+  Object.assign(renderer.domElement.style, {
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
+    height: '100%',
+    background: 'transparent',
+  })
   // Ensure canvas fills container precisely to avoid 1px gaps on some DPR/zoom combos
   Object.assign(renderer.domElement.style, {
     position: 'absolute',
