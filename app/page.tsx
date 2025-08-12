@@ -73,6 +73,24 @@ export default function Page() {
     [],
   )
 
+  // Side dots active state on scroll
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
+    const dots = Array.from(document.querySelectorAll<HTMLAnchorElement>('.side-dots .dot'))
+    const onScroll = () => {
+      const mid = window.scrollY + window.innerHeight / 2
+      let active = 0
+      for (let i = 0; i < sectionIds.length; i++) {
+        const el = document.getElementById(sectionIds[i])
+        if (el && mid >= el.offsetTop) active = i
+      }
+      dots.forEach((d, i) => d.classList.toggle('active', i === active))
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <main
       style={{
@@ -96,6 +114,26 @@ export default function Page() {
       <div className="social-vert" aria-hidden="true">
         <a href="https://github.com/callmeATHUL" target="_blank" rel="noreferrer">GITHUB</a>
         <a href="https://www.linkedin.com/in/callmepk/" target="_blank" rel="noreferrer">LINKEDIN</a>
+      </div>
+      {/* Status widget */}
+      <div
+        className="glass-card hidden lg:block fixed right-4 top-1/2 z-30 -translate-y-1/2 p-4 rounded-2xl"
+        aria-hidden="true"
+        style={{ minWidth: 220 }}
+      >
+        <div className="mb-3 text-[0.7rem] uppercase tracking-[0.2em] text-cyan-300">Status</div>
+        <div className="mb-2 flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2">
+          <span className="h-2 w-2 rounded-full" style={{ background: '#00ff88', boxShadow: '0 0 10px #00ff88' }} />
+          <span className="text-sm">Open to collab</span>
+        </div>
+        <div className="mb-2 flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2">
+          <span className="h-2 w-2 rounded-full" style={{ background: '#ffd60a', boxShadow: '0 0 10px #ffd60a' }} />
+          <span className="text-sm">Email ↗</span>
+        </div>
+        <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2">
+          <span className="h-2 w-2 rounded-full" style={{ background: '#ff006e', boxShadow: '0 0 10px #ff006e' }} />
+          <span className="text-sm">WebGPU Ready</span>
+        </div>
       </div>
       {/* Corners */}
       <div className="corner-accent tr" aria-hidden="true" />
