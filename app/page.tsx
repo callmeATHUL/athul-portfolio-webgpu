@@ -113,11 +113,11 @@ function Nav({ items }: { items: NavItem[] }) {
     <nav className="sticky top-4 z-50 flex w-full justify-center px-4">
       <div
         className={`flex items-center gap-3 rounded-full border px-5 py-2 backdrop-blur-md transition-opacity ${
-          scrolled ? "opacity-90" : "opacity-100"
+          scrolled ? "opacity-95" : "opacity-100"
         }`}
         style={{
-          background: "rgba(255,255,255,0.05)",
-          borderColor: "rgba(255,255,255,0.1)",
+          background: "rgba(255,255,255,0.08)",
+          borderColor: "rgba(255,255,255,0.2)",
         }}
         aria-label="Primary"
       >
@@ -157,12 +157,14 @@ function HeroAttractors() {
         />
       </div>
       <div className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center px-6 pt-24 pb-12 md:pt-32">
-        <h1 className="text-center text-3xl font-semibold tracking-tight md:text-5xl">
-          Java Full‑Stack Engineer • 3D UI • Automation
+        <h1 className="text-center text-3xl font-semibold tracking-tight md:text-5xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
+          ATHUL P SUDHEER
         </h1>
-        <p className="mt-4 max-w-2xl text-center opacity-80">
-          I build reliable backends, secure APIs, and modern, animated interfaces. Exploring real‑time systems, WebGPU,
-          and automation that ships.
+        <p className="mt-2 text-center text-sm md:text-base opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+          JAVA FULLSTACK DEVELOPER • TECHNICAL PRODUCTION SUPPORT at Al Rajhi Bank — Riyadh, Saudi Arabia (On‑site)
+        </p>
+        <p className="mt-4 max-w-2xl text-center opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+          Full‑stack applications, secure APIs, <span className="whitespace-nowrap">3D modern UI</span>, and workflow automation.
         </p>
         <div className="mt-6">
           <button
@@ -195,13 +197,11 @@ function About() {
     <section id="about" className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl" />
       <SectionTitle id="about-title">About</SectionTitle>
-      <p className="mt-4 max-w-3xl opacity-85">
-        Java Full‑Stack engineer focused on secure, scalable services and modern UI. I automate workflows end‑to‑end,
-        integrate cloud‑native tooling, and craft performant 3D/interactive experiences with an eye for detail.
-      </p>
-      <p className="mt-3 max-w-3xl opacity-80">
-        Comfortable across APIs, databases, and front‑end animations — shipping reliable features with strong
-        observability and DX.
+      <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+        Java Full Stack Developer with 3+ years in IT banking systems, automation, and frontend development. I build secure,
+        scalable systems with modern UI/UX. Hands‑on with internal banking flows, REST/SOAP APIs, and deployment pipelines.
+        Strong interest in cybersecurity and automation, with practical exposure in high‑stakes environments such as SAMA and
+        Riyadh Bank.
       </p>
     </section>
   )
@@ -210,10 +210,13 @@ function About() {
 function Skills() {
   const pairs: [string, string][] = [
     ["Java", "Spring Boot"],
-    ["Next.js", "Tailwind"],
+    ["Spring MVC", "Hibernate"],
+    ["REST APIs", "SOAP"],
+    ["Next.js", "TailwindCSS"],
+    ["Three.js", "WebGPU/WebGL"],
     ["Python", "n8n"],
-    ["GSAP", "Anime.js"],
-    ["Three.js", "WebGL/WebGPU"],
+    ["SQL", "Tomcat/Maven"],
+    ["Node.js", "Nginx"],
   ]
   return (
     <section id="skills" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
@@ -222,8 +225,8 @@ function Skills() {
         {pairs.map(([a, b]) => (
           <div
             key={`${a}-${b}`}
-            className="flex items-center justify-between rounded-lg border px-4 py-3 text-sm"
-            style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
+            className="flex items-center justify-between rounded-lg border px-4 py-3 text-sm backdrop-blur-sm"
+            style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(0,0,0,0.3)" }}
           >
             <span className="opacity-90">{a}</span>
             <span className="opacity-70">/ {b}</span>
@@ -279,10 +282,10 @@ type ProjectCard = {
 }
 function Projects() {
   const cards: ProjectCard[] = [
-    { title: "Realtime Analytics Kit", stack: "Next.js, tRPC, Postgres, WebSockets", status: "Active" },
-    { title: "3D Product Configurator", stack: "Three.js, WebGPU, GLTF", status: "In Progress" },
-    { title: "Automation Pipelines", stack: "Python, n8n, Redis", status: "Shipped" },
-    { title: "Secure API Gateway", stack: "Java, Spring Boot, OAuth2", status: "Shipped" },
+    { title: "Scroll‑based Portfolio", stack: "Next.js, TailwindCSS, Framer Motion", status: "Active" },
+    { title: "n8n Automation Workflows", stack: "n8n, Node.js, Webhooks", status: "Active" },
+    { title: "Open‑Source UI Systems", stack: "shadcn/ui, TailwindCSS, TS/React", status: "In Progress" },
+    { title: "Security Explorations", stack: "Java/Python, Burp Suite, Secure APIs", status: "In Progress" },
   ]
 
   const badgeColor = (s: ProjectCard["status"]) => {
@@ -307,8 +310,8 @@ function Projects() {
           return (
             <article
               key={c.title}
-              className="rounded-xl border p-5"
-              style={{ borderColor: "rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.02)" }}
+              className="rounded-xl border p-5 backdrop-blur-sm"
+              style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(0,0,0,0.35)" }}
             >
               <header className="flex items-start justify-between">
                 <h3 className="text-lg font-semibold">{c.title}</h3>
@@ -331,33 +334,23 @@ function Projects() {
 function Experience() {
   const roles = [
     {
-      company: "Acme FinTech",
-      title: "Senior Full‑Stack Engineer",
-      period: "2023 — Present",
+      company: "Al Rajhi Bank",
+      title: "B2B L3 Technical Production Support",
+      period: "Riyadh, Saudi Arabia — On‑site",
       bullets: [
-        "Led delivery of secure payment APIs with Spring Boot and OAuth2",
-        "Shipped analytics dashboard with real‑time charts and a11y focus",
-        "Cut infra costs via caching, tracing, and CI optimizations",
+        "Managed critical incident resolution and deployment support across internal banking platforms",
+        "Part of implementation for deploying core systems at SAMA and Riyadh Bank",
+        "Root‑cause analysis, release validation, and integration with business users",
       ],
     },
     {
-      company: "Nova Systems",
-      title: "Software Engineer",
-      period: "2021 — 2023",
+      company: "Java Full Stack Developer",
+      title: "Backend & Frontend Engineer",
+      period: "3+ years",
       bullets: [
-        "Built workflow automation with Python/n8n across teams",
-        "Implemented 3D product previews with Three.js",
-        "Improved DX with templates, linters, and scaffolds",
-      ],
-    },
-    {
-      company: "StartLab",
-      title: "Full‑Stack Developer",
-      period: "2019 — 2021",
-      bullets: [
-        "Developed customer portals and internal tools",
-        "Introduced component libraries and design tokens",
-        "Collaborated on performance and security reviews",
+        "Spring Boot, Hibernate, REST/SOAP for secure, scalable services",
+        "Front‑end with HTML/CSS/JS, TailwindCSS, Next.js; modular UI design",
+        "Automation with Python and n8n; observability and DX improvements",
       ],
     },
   ]
@@ -393,38 +386,38 @@ function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
       <SectionTitle id="contact-title">Contact</SectionTitle>
-      <p className="mt-4 max-w-3xl opacity-85">
-        Let&apos;s build something reliable and delightful. I&apos;m open to roles and collaborations.
+      <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
+        Let&apos;s build something reliable and delightful. Open to roles and collaborations.
       </p>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <a
-          href="mailto:hello@example.com"
+          href="mailto:athulpsudheer05@gmail.com"
           className="rounded-full px-5 py-2 text-sm font-medium shadow transition-colors"
           style={{ backgroundColor: brand.orange, color: "#111" }}
         >
-          Email Me
+          Email
         </a>
         <a
-          href="https://www.linkedin.com/"
+          href="https://www.linkedin.com/in/callmepk/"
           target="_blank"
           rel="noreferrer"
           className="rounded-full border px-4 py-1.5 text-sm"
-          style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(255,255,255,0.03)" }}
+          style={{ borderColor: "rgba(255,255,255,0.2)", background: "rgba(0,0,0,0.35)" }}
         >
           LinkedIn
         </a>
         <a
-          href="https://twitter.com/"
+          href="https://github.com/callmeATHUL"
           target="_blank"
           rel="noreferrer"
           className="rounded-full border px-4 py-1.5 text-sm"
-          style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(255,255,255,0.03)" }}
+          style={{ borderColor: "rgba(255,255,255,0.2)", background: "rgba(0,0,0,0.35)" }}
         >
-          Twitter
+          GitHub
         </a>
       </div>
       <p className="mt-6 text-xs opacity-60">
-        Future additions: lazy routes for demos e.g., /demos/kinect, /demos/pcd (code-split when added).
+        More: repositories at github.com/callmeATHUL and details on LinkedIn.
       </p>
     </section>
   )
@@ -434,7 +427,7 @@ function Footer() {
   return (
     <footer className="mx-auto max-w-6xl px-6 pb-10 pt-6">
       <div className="flex items-center justify-between text-xs opacity-60">
-        <span>© {new Date().getFullYear()} Your Name</span>
+        <span>© {new Date().getFullYear()} ATHUL P SUDHEER</span>
         <span>Built with Next.js App Router [^3]</span>
       </div>
     </footer>
