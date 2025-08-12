@@ -73,14 +73,14 @@ export default function BackgroundCanvas() {
 
     let handle: RendererHandle | null = null
 
-    // Prefer WebGL (stable across devices)
-    if (supportsWebGL2()) {
-      handle = await initWebGL(root)
+    // Prefer WebGPU example attractors first
+    if (typeof navigator !== 'undefined' && 'gpu' in navigator) {
+      handle = await initWebGPU(root)
     }
 
-    // Optional fallback to WebGPU if available and WebGL failed
-    if (!handle && typeof navigator !== 'undefined' && 'gpu' in navigator) {
-      handle = await initWebGPU(root)
+    // Fallback to WebGL GPGPU if WebGPU is unavailable
+    if (!handle && supportsWebGL2()) {
+      handle = await initWebGL(root)
     }
 
     if (handle) {
