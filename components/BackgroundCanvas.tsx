@@ -186,7 +186,7 @@ export default function BackgroundCanvas() {
     <RendererContext.Provider value={rendererHandle}>
       <div 
         ref={containerRef} 
-        className="pointer-events-none fixed inset-0 z-30"
+        className="pointer-events-none fixed inset-0 z-0"
         aria-hidden="true"
       />
       {errorMsg && (
@@ -225,7 +225,7 @@ export function BackgroundControls() {
   if (!rendererHandle) return null
 
   return (
-    <div className="fixed right-3 bottom-3 z-30 flex gap-2 rounded-full bg-black/40 p-1 text-xs backdrop-blur-sm">
+    <div className="fixed right-3 bottom-3 z-40 flex gap-2 rounded-full bg-black/40 p-1 text-xs backdrop-blur-sm">
       <button 
         onClick={isPaused ? handleResume : handlePause}
         className="rounded-full px-2 py-1 hover:bg-white/10 transition-colors"

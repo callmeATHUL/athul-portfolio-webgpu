@@ -48,11 +48,13 @@ html {
         />
       </head>
       <body className="bg-black text-white">
+        {/* Background canvas sits behind content */}
         <BackgroundCanvas />
-        <BackgroundControls />
         <div className="relative z-20">
           {children}
         </div>
+        {/* Controls above content */}
+        <BackgroundControls />
       </body>
     </html>
   )
