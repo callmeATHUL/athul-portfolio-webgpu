@@ -18,6 +18,15 @@ export const metadata: Metadata = {
 const Display = Space_Grotesk({ subsets: ['latin'], variable: '--font-display' })
 const HeroDisplay = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-hero' })
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Athul P Sudheer',
+  jobTitle: 'Java Full Stack Developer',
+  knowsAbout: ['WebGPU', 'Three.js', 'Spring Boot', 'APIs', 'Automation'],
+  worksFor: { '@type': 'Organization', name: 'Al Rajhi Bank' },
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +42,10 @@ html {
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData as any) }}
+        />
       </head>
       <body className="bg-black text-white">
         <BackgroundCanvas />
