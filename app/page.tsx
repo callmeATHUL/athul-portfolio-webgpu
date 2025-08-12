@@ -83,6 +83,23 @@ export default function Page() {
       }}
       className="min-h-screen"
     >
+      {/* Ambient animated gradient background */}
+      <div className="bg-anim" aria-hidden="true" />
+      {/* Side nav dots */}
+      <div className="side-dots" aria-hidden="true">
+        <a href="#home" className="dot active" />
+        <a href="#projects" className="dot" />
+        <a href="#skills" className="dot" />
+        <a href="#contact" className="dot" />
+      </div>
+      {/* Vertical socials */}
+      <div className="social-vert" aria-hidden="true">
+        <a href="https://github.com/callmeATHUL" target="_blank" rel="noreferrer">GITHUB</a>
+        <a href="https://www.linkedin.com/in/callmepk/" target="_blank" rel="noreferrer">LINKEDIN</a>
+      </div>
+      {/* Corners */}
+      <div className="corner-accent tr" aria-hidden="true" />
+      <div className="corner-accent bl" aria-hidden="true" />
       <Nav items={navItems} />
       <HeroAttractors />
       <About />
@@ -171,8 +188,9 @@ function HeroAttractors() {
           <p className="mt-3 max-w-2xl opacity-95 md:text-base text-sm" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
             Al Rajhi Bank — Riyadh, Saudi Arabia (On‑site). Full‑stack apps, secure APIs, <span className="whitespace-nowrap">3D modern UI</span>, and workflow automation.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-3 md:justify-start">
+          <div className="mt-6 flex items-center justify-center gap-4 md:justify-start">
             <button onClick={scrollToProjects} className="neon-btn rounded-full px-6 py-2 text-sm font-semibold shadow">View Projects</button>
+            <span className="play-cta" aria-label="Play"></span>
             <a href="#contact" className="rounded-full border px-6 py-2 text-sm" style={{borderColor:'rgba(255,255,255,.2)', background:'rgba(0,0,0,.35)'}}>Contact</a>
           </div>
         </div>
