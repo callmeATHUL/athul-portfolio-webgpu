@@ -37,6 +37,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Neon accents */
+  --neon-cyan: #22d3ee;
+  --neon-violet: #7c3aed;
+  --neon-pink: #ff6bb5;
 }
 
 .dark {
@@ -153,5 +157,53 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* Premium UI helpers */
+  .text-glow {
+    text-shadow: 0 2px 12px rgba(0,0,0,.65), 0 0 24px rgba(124,58,237,.25);
+  }
+  .neon-btn {
+    background: linear-gradient(90deg, var(--neon-violet), var(--neon-cyan));
+    color: #0b0f14;
+    border: 0;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.08) inset,
+      0 10px 30px rgba(34,211,238,.25),
+      0 4px 12px rgba(124,58,237,.25);
+  }
+  .neon-btn:hover { filter: brightness(1.05); }
+  .neon-btn:active { transform: translateY(1px); }
+
+  .glass-card {
+    background: rgba(8,10,15,.6);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 10px 35px rgba(0,0,0,.45);
+    backdrop-filter: blur(6px);
+  }
+  .glass-card:hover { border-color: rgba(255,255,255,.22); }
+
+  .section-title {
+    position: relative;
+    padding-bottom: .5rem;
+  }
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--neon-violet), var(--neon-cyan));
+    box-shadow: 0 0 18px rgba(124,58,237,.45);
+  }
+
+  .section-scrim {
+    position: absolute;
+    inset: -10% -5%;
+    pointer-events: none;
+    background: radial-gradient(60% 30% at 50% 0%, rgba(34,211,238,.12), rgba(255,255,255,0) 70%),
+                radial-gradient(50% 25% at 70% 20%, rgba(124,58,237,.10), rgba(255,255,255,0) 70%);
   }
 }

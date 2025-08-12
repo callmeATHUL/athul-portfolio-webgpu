@@ -157,7 +157,7 @@ function HeroAttractors() {
         />
       </div>
       <div className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center px-6 pt-24 pb-12 md:pt-32">
-        <h1 className="font-display text-gradient text-center text-4xl md:text-6xl font-semibold tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
+        <h1 className="font-display text-gradient text-glow text-center text-4xl md:text-6xl font-semibold tracking-tight">
           ATHUL P SUDHEER
         </h1>
         <p className="mt-2 text-center text-sm md:text-base opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
@@ -169,8 +169,7 @@ function HeroAttractors() {
         <div className="mt-6">
           <button
             onClick={scrollToProjects}
-            className="rounded-full px-5 py-2 text-sm font-medium shadow transition-colors"
-            style={{ backgroundColor: brand.orange, color: '#111' }}
+            className="neon-btn rounded-full px-6 py-2 text-sm font-semibold shadow transition-transform"
             aria-label="View Projects"
           >
             View Projects
@@ -196,7 +195,7 @@ function About() {
   return (
     <section id="about" className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl" />
-      <SectionTitle id="about-title"><span className="font-display text-gradient">About</span></SectionTitle>
+      <SectionTitle id="about-title"><span className="section-title font-display text-gradient">About</span></SectionTitle>
       <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
         Java Full Stack Developer with 3+ years in IT banking systems, automation, and frontend development. I build secure,
         scalable systems with modern UI/UX. Hands‑on with internal banking flows, REST/SOAP APIs, and deployment pipelines.
@@ -220,13 +219,13 @@ function Skills() {
   ]
   return (
     <section id="skills" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="skills-title"><span className="font-display text-gradient">Skills</span></SectionTitle>
+      <div className="section-scrim" aria-hidden="true" />
+      <SectionTitle id="skills-title"><span className="section-title font-display text-gradient">Skills</span></SectionTitle>
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
         {pairs.map(([a, b]) => (
           <div
             key={`${a}-${b}`}
-            className="flex items-center justify-between rounded-lg border px-4 py-3 text-sm backdrop-blur-sm"
-            style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(0,0,0,0.3)" }}
+            className="flex items-center justify-between rounded-lg px-4 py-3 text-sm glass-card"
           >
             <span className="opacity-90">{a}</span>
             <span className="opacity-70">/ {b}</span>
@@ -258,7 +257,7 @@ function CreativeHighlights() {
   ]
   return (
     <section className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <SectionTitle id="creative"><span className="font-display text-gradient">Creative Highlights</span></SectionTitle>
+      <SectionTitle id="creative"><span className="section-title font-display text-gradient">Creative Highlights</span></SectionTitle>
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {highlights.map((h) => (
           <div
@@ -303,15 +302,14 @@ function Projects() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <SectionTitle id="projects-title"><span className="font-display text-gradient">Projects</span></SectionTitle>
+      <SectionTitle id="projects-title"><span className="section-title font-display text-gradient">Projects</span></SectionTitle>
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
         {cards.map((c) => {
           const bc = badgeColor(c.status)
           return (
             <article
               key={c.title}
-              className="rounded-xl border p-5 backdrop-blur-sm"
-              style={{ borderColor: "rgba(255,255,255,0.15)", background: "rgba(0,0,0,0.35)" }}
+              className="rounded-xl p-5 glass-card"
             >
               <header className="flex items-start justify-between">
                 <h3 className="text-lg font-semibold">{c.title}</h3>
@@ -357,7 +355,7 @@ function Experience() {
 
   return (
     <section id="experience" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="experience-title"><span className="font-display text-gradient">Experience</span></SectionTitle>
+      <SectionTitle id="experience-title"><span className="section-title font-display text-gradient">Experience</span></SectionTitle>
       <div className="mt-6 space-y-8">
         {roles.map((r, i) => (
           <div key={i} className="relative pl-6">
@@ -385,7 +383,7 @@ function Experience() {
 function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="contact-title"><span className="font-display text-gradient">Contact</span></SectionTitle>
+      <SectionTitle id="contact-title"><span className="section-title font-display text-gradient">Contact</span></SectionTitle>
       <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
         Let&apos;s build something reliable and delightful. Open to roles and collaborations.
       </p>
