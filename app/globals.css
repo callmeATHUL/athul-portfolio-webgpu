@@ -144,4 +144,14 @@
     padding: 0;
     width: 100%;
   }
+  .font-display {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .text-gradient {
+    background: linear-gradient(180deg, #ffffff 0%, #e6f0f6 60%, #a7c7ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }

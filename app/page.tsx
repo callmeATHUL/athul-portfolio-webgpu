@@ -157,7 +157,7 @@ function HeroAttractors() {
         />
       </div>
       <div className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center px-6 pt-24 pb-12 md:pt-32">
-        <h1 className="text-center text-3xl font-semibold tracking-tight md:text-5xl" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
+        <h1 className="font-display text-gradient text-center text-4xl md:text-6xl font-semibold tracking-tight" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
           ATHUL P SUDHEER
         </h1>
         <p className="mt-2 text-center text-sm md:text-base opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
@@ -196,7 +196,7 @@ function About() {
   return (
     <section id="about" className="relative mx-auto max-w-5xl px-6 py-16 md:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl" />
-      <SectionTitle id="about-title">About</SectionTitle>
+      <SectionTitle id="about-title"><span className="font-display text-gradient">About</span></SectionTitle>
       <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
         Java Full Stack Developer with 3+ years in IT banking systems, automation, and frontend development. I build secure,
         scalable systems with modern UI/UX. Hands‑on with internal banking flows, REST/SOAP APIs, and deployment pipelines.
@@ -220,7 +220,7 @@ function Skills() {
   ]
   return (
     <section id="skills" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="skills-title">Skills</SectionTitle>
+      <SectionTitle id="skills-title"><span className="font-display text-gradient">Skills</span></SectionTitle>
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
         {pairs.map(([a, b]) => (
           <div
@@ -258,7 +258,7 @@ function CreativeHighlights() {
   ]
   return (
     <section className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <SectionTitle id="creative">Creative Highlights</SectionTitle>
+      <SectionTitle id="creative"><span className="font-display text-gradient">Creative Highlights</span></SectionTitle>
       <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
         {highlights.map((h) => (
           <div
@@ -303,7 +303,7 @@ function Projects() {
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-      <SectionTitle id="projects-title">Projects</SectionTitle>
+      <SectionTitle id="projects-title"><span className="font-display text-gradient">Projects</span></SectionTitle>
       <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
         {cards.map((c) => {
           const bc = badgeColor(c.status)
@@ -357,7 +357,7 @@ function Experience() {
 
   return (
     <section id="experience" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="experience-title">Experience</SectionTitle>
+      <SectionTitle id="experience-title"><span className="font-display text-gradient">Experience</span></SectionTitle>
       <div className="mt-6 space-y-8">
         {roles.map((r, i) => (
           <div key={i} className="relative pl-6">
@@ -385,7 +385,7 @@ function Experience() {
 function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
-      <SectionTitle id="contact-title">Contact</SectionTitle>
+      <SectionTitle id="contact-title"><span className="font-display text-gradient">Contact</span></SectionTitle>
       <p className="mt-4 max-w-3xl opacity-95" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
         Let&apos;s build something reliable and delightful. Open to roles and collaborations.
       </p>
