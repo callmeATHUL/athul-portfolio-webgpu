@@ -13,14 +13,21 @@ export type RendererHandle = {
 }
 
 export async function start(container: HTMLDivElement): Promise<RendererHandle> {
-  const width = container.clientWidth
-  const height = container.clientHeight
+  const rect = container.getBoundingClientRect()
+  const width = Math.ceil(rect.width)
+  const height = Math.ceil(rect.height)
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
   renderer.setClearAlpha(0)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
   renderer.setSize(width, height, false)
   container.appendChild(renderer.domElement)
+  Object.assign(renderer.domElement.style, {
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
+    height: '100%'
+  })
 
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(60, Math.max(1, width) / Math.max(1, height), 0.1, 100)
@@ -153,8 +160,9 @@ export async function start(container: HTMLDivElement): Promise<RendererHandle> 
   scene.add(points)
 
   const onResize = () => {
-    const w = container.clientWidth
-    const h = container.clientHeight
+    const r = container.getBoundingClientRect()
+    const w = Math.ceil(r.width)
+    const h = Math.ceil(r.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
     renderer.setSize(w, h, false)
     camera.aspect = Math.max(1, w) / Math.max(1, h)

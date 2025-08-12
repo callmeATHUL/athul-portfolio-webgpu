@@ -68,6 +68,12 @@ function DemoCanvas() {
         const renderer: any = new THREE.WebGPURenderer({ antialias: true, alpha: true })
         renderer.setClearColor("#000000")
         root.appendChild(renderer.domElement)
+        Object.assign(renderer.domElement.style, {
+          position: 'absolute',
+          inset: '0',
+          width: '100%',
+          height: '100%'
+        })
 
         const controls = new OrbitControls(camera, renderer.domElement)
         controls.enableDamping = true
@@ -80,8 +86,9 @@ function DemoCanvas() {
         scene.add(dir)
 
         const setSize = () => {
-          const w = root.clientWidth
-          const h = root.clientHeight
+          const rect = root.getBoundingClientRect()
+          const w = Math.ceil(rect.width)
+          const h = Math.ceil(rect.height)
           const dpr = Math.min(window.devicePixelRatio || 1, 2)
           camera.aspect = Math.max(1, w) / Math.max(1, h)
           camera.updateProjectionMatrix()

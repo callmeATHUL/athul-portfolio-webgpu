@@ -25,6 +25,13 @@ export async function start(container: HTMLDivElement): Promise<RendererHandle> 
   const renderer: any = new (THREE as any).WebGPURenderer({ antialias: true, alpha: true })
   renderer.setClearColor('#000000')
   container.appendChild(renderer.domElement)
+  // Ensure canvas fills container precisely to avoid 1px gaps on some DPR/zoom combos
+  Object.assign(renderer.domElement.style, {
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
+    height: '100%'
+  })
 
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
@@ -37,8 +44,9 @@ export async function start(container: HTMLDivElement): Promise<RendererHandle> 
   scene.add(directionalLight)
 
   const setSize = () => {
-    const w = container.clientWidth
-    const h = container.clientHeight
+    const rect = container.getBoundingClientRect()
+    const w = Math.ceil(rect.width)
+    const h = Math.ceil(rect.height)
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
     camera.aspect = Math.max(1, w) / Math.max(1, h)
     camera.updateProjectionMatrix()
