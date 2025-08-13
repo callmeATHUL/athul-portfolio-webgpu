@@ -16,7 +16,7 @@
 "use client"
 
 import type React from "react"
-import { useCallback, useMemo, useEffect, useState } from "react"
+import { useMemo, useEffect, useState } from "react"
 import type { LucideIcon } from "lucide-react";
 import {
   Home as HomeIcon,
@@ -145,6 +145,51 @@ export default function Page() {
           LINKEDIN
         </a>
       </div>
+      {/* Corner widgets */}
+      <aside
+        className="widget-card hidden md:block fixed left-4 top-4 z-30 p-4 rounded-xl"
+        aria-hidden="true"
+        style={{ minWidth: 220 }}
+      >
+        <div className="mb-2 widget-title">Profile</div>
+        <div className="metric-grid">
+          <div className="metric-item">
+            <div className="metric-label">Location</div>
+            <div className="metric-value">Riyadh, SA</div>
+          </div>
+          <div className="metric-item">
+            <div className="metric-label">Experience</div>
+            <div className="metric-value">3+ yrs</div>
+          </div>
+          <div className="metric-item">
+            <div className="metric-label">Role</div>
+            <div className="metric-value">Full‑stack</div>
+          </div>
+        </div>
+      </aside>
+      <aside
+        className="widget-card hidden md:block fixed right-4 top-4 z-30 p-4 rounded-xl"
+        aria-hidden="true"
+        style={{ minWidth: 220 }}
+      >
+        <div className="mb-2 widget-title">Availability</div>
+        <div className="mb-2 widget-pill">
+          <span className="widget-dot" style={{ color: "#00ff88", background: "#00ff88" }} />
+          <span>Open to collab</span>
+        </div>
+        <div className="widget-pill">
+          <span className="widget-dot" style={{ color: "#ffd60a", background: "#ffd60a" }} />
+          <span>Email ↗</span>
+        </div>
+      </aside>
+      <aside
+        className="widget-card hidden md:block fixed right-4 bottom-4 z-30 p-4 rounded-xl"
+        aria-hidden="true"
+        style={{ minWidth: 220 }}
+      >
+        <div className="mb-2 widget-title">Focus</div>
+        <div className="text-sm opacity-90">APIs • 3D UI • Automation</div>
+      </aside>
       {/* Status widget */}
       <div
         className="glass-card hidden lg:block fixed right-4 top-1/2 z-30 -translate-y-1/2 p-4 rounded-2xl"
@@ -246,12 +291,6 @@ function Nav({ items }: { items: NavItem[] }) {
  * Hero Section
  */
 function HeroAttractors() {
-  const scrollToProjects = useCallback(() => {
-    document
-      .getElementById("projects")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen">
       <div className="absolute inset-0 -z-10">
@@ -264,14 +303,14 @@ function HeroAttractors() {
           }}
         />
       </div>
-      <div className="grid min-h-[70vh] max-w-none grid-cols-1 items-start gap-6 px-0 pt-20 pb-12 md:grid-cols-[220px_1fr_220px] md:pt-28">
-        <aside className="hidden md:flex md:col-start-2 flex-col gap-6 opacity-85">
+      <div className="mx-auto max-w-6xl grid min-h-screen grid-cols-1 items-end gap-6 px-6 md:px-8 pt-20 pb-12 md:grid-cols-[220px_1fr_220px] md:pt-28">
+        <aside className="hidden md:flex md:col-start-1 flex-col gap-6 opacity-85">
           <div className="text-xs uppercase hero-kicker">Profile</div>
           <div className="hero-stat text-sm">Riyadh, SA</div>
           <div className="hero-stat text-sm">3+ yrs exp</div>
           <div className="hero-stat text-sm">APIs • 3D UI • Automation</div>
         </aside>
-        <div className="text-left md:col-start-1">
+        <div className="text-left md:col-start-2">
           <div className="hero-kicker uppercase">
             JAVA FULLSTACK • PRODUCTION SUPPORT
           </div>
@@ -286,25 +325,7 @@ function HeroAttractors() {
             secure APIs, <span className="whitespace-nowrap">3D modern UI</span>
             , and workflow automation.
           </p>
-          <div className="mt-6 flex items-center justify-start gap-4">
-            <button
-              onClick={scrollToProjects}
-              className="neon-btn rounded-full px-6 py-2 text-sm font-semibold shadow"
-            >
-              View Projects
-            </button>
-            <span className="play-cta" aria-label="Play"></span>
-            <a
-              href="#contact"
-              className="rounded-full border px-6 py-2 text-sm"
-              style={{
-                borderColor: "rgba(255,255,255,.2)",
-                background: "rgba(0,0,0,.35)",
-              }}
-            >
-              Contact
-            </a>
-          </div>
+          {/* CTA removed as requested */}
         </div>
         <aside className="hidden md:flex md:col-start-3 flex-col items-end gap-6 opacity-85">
           <div className="text-xs uppercase hero-kicker">Status</div>
