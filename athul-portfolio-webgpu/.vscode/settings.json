@@ -1,0 +1,9 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+  "css.customData": [
+    "/home/syntax-mind/Documents/portfolio-webgpu-attractors/.vscode/tailwind-custom-data.json"
+  ]
+}
+

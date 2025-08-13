@@ -1,0 +1,65 @@
+
+> my-v0-project@0.1.0 dev /home/syntax-mind/Documents/portfolio-webgpu-attractors
+> next dev -- -p 3000
+
+Invalid project directory provided, no such directory: /home/syntax-mind/Documents/portfolio-webgpu-attractors/-p
+ ELIFECYCLE  Command failed with exit code 1.
+
+> my-v0-project@0.1.0 dev /home/syntax-mind/Documents/portfolio-webgpu-attractors
+> next dev
+
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.228:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 5.5s (706 modules)
+ GET / 200 in 5754ms
+ GET / 200 in 73ms
+ GET / 200 in 59ms
+ ✓ Compiled in 1432ms (688 modules)
+ GET / 200 in 133ms
+ ✓ Compiled in 558ms (688 modules)
+ GET / 200 in 125ms
+ GET / 200 in 79ms
+ ✓ Compiled in 14.1s (688 modules)
+ GET / 200 in 127ms
+ ✓ Compiled in 629ms (329 modules)
+ GET / 200 in 27ms
+ GET / 200 in 76ms
+ GET / 200 in 44ms
+ GET / 200 in 41ms
+ ✓ Compiled in 952ms (694 modules)
+ GET / 200 in 76ms
+ GET / 200 in 54ms
+ ✓ Compiled in 886ms (694 modules)
+ GET / 200 in 88ms
+ GET / 200 in 63ms
+ GET / 200 in 69ms
+ ✓ Compiled in 1843ms (332 modules)
+ GET / 200 in 88ms
+ ✓ Compiled in 1421ms (694 modules)
+ GET / 200 in 135ms
+ GET / 200 in 189ms
+ ✓ Compiled in 805ms (694 modules)
+ GET / 200 in 113ms
+ GET / 200 in 124ms
+ ✓ Compiled in 1216ms (680 modules)
+ GET / 200 in 108ms
+ ✓ Compiled in 1201ms (680 modules)
+ GET / 200 in 132ms
+ ✓ Compiled in 1067ms (694 modules)
+ GET / 200 in 59ms
+ ✓ Compiled in 659ms (680 modules)
+ GET / 200 in 48ms
+ ✓ Compiled in 684ms (332 modules)
+ GET / 200 in 25ms
+ ✓ Compiled in 839ms (332 modules)
+ GET / 200 in 45ms
+ ✓ Compiled in 669ms (332 modules)
+ GET / 200 in 23ms
+ GET / 200 in 92ms
+ GET / 200 in 59ms
+ GET / 200 in 51ms
