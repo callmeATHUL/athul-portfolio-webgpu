@@ -15,6 +15,14 @@ type RendererHandle = {
     pointSize: number
     colorA: string
     colorB: string
+    seed: number
+    spreadX: number
+    spreadY: number
+    spreadZ: number
+    velocityScale: number
+    photoInitials: string
+    photoSize: number
+    photoVisible: boolean
   }>) => void
 }
 
@@ -101,12 +109,12 @@ export default function BackgroundCanvas() {
 
       // Section-based parameter tweens
       const sectionParams = {
-        home: { spinStrength: 2.5, maxSpeed: 8, colorA: '#5900ff', colorB: '#ffa575' },
-        about: { spinStrength: 1.2, maxSpeed: 6, colorA: '#3bb3fb', colorB: '#0e6f4f' },
-        skills: { spinStrength: 1.8, maxSpeed: 7, colorA: '#ff8a00', colorB: '#3bb3fb' },
-        projects: { spinStrength: 3.0, maxSpeed: 9, colorA: '#ffaa55', colorB: '#6da8ff' },
-        experience: { spinStrength: 1.6, maxSpeed: 6.5, colorA: '#86ffd1', colorB: '#59a1ff' },
-        contact: { spinStrength: 2.2, maxSpeed: 7.5, colorA: '#ff7a7a', colorB: '#ffd27a' }
+        home: { spinStrength: 2.5, maxSpeed: 8, colorA: '#5900ff', colorB: '#ffa575', seed: 101, spreadX: 6, spreadY: 0.3, spreadZ: 6, velocityScale: 0.06, photoInitials: 'AP', photoSize: 1.4, photoVisible: true },
+        about: { spinStrength: 1.2, maxSpeed: 6, colorA: '#3bb3fb', colorB: '#0e6f4f', seed: 202, spreadX: 5, spreadY: 0.25, spreadZ: 5, velocityScale: 0.045, photoVisible: true },
+        skills: { spinStrength: 1.8, maxSpeed: 7, colorA: '#ff8a00', colorB: '#3bb3fb', seed: 303, spreadX: 7, spreadY: 0.35, spreadZ: 7, velocityScale: 0.055, photoVisible: false },
+        projects: { spinStrength: 3.0, maxSpeed: 9, colorA: '#ffaa55', colorB: '#6da8ff', seed: 404, spreadX: 8, spreadY: 0.3, spreadZ: 8, velocityScale: 0.06, photoVisible: false },
+        experience: { spinStrength: 1.6, maxSpeed: 6.5, colorA: '#86ffd1', colorB: '#59a1ff', seed: 505, spreadX: 6, spreadY: 0.28, spreadZ: 6, velocityScale: 0.05, photoVisible: false },
+        contact: { spinStrength: 2.2, maxSpeed: 7.5, colorA: '#ff7a7a', colorB: '#ffd27a', seed: 606, spreadX: 6, spreadY: 0.3, spreadZ: 6, velocityScale: 0.055, photoVisible: true }
       }
 
       // Create scroll-triggered animations
