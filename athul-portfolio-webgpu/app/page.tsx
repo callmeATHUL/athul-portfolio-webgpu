@@ -217,7 +217,7 @@ function Nav({ items }: { items: NavItem[] }) {
   return (
     <nav className="sticky top-0 z-50 w-full">
       <div
-        className={`mx-auto flex max-w-6xl items-center justify-center gap-6 px-4 py-3 transition-opacity ${
+        className={`mx-auto flex max-w-6xl items-center justify-center gap-8 md:gap-10 lg:gap-12 px-4 py-3 transition-opacity ${
           scrolled ? "opacity-95" : "opacity-100"
         }`}
         aria-label="Primary"
@@ -262,14 +262,14 @@ function HeroAttractors() {
           }}
         />
       </div>
-      <div className="mx-auto grid min-h-[70vh] max-w-6xl grid-cols-1 items-center gap-6 px-6 pt-24 pb-12 md:grid-cols-[220px_1fr_220px] md:pt-32">
+      <div className="mx-auto grid min-h-[70vh] max-w-6xl grid-cols-1 items-start gap-6 px-6 pt-24 pb-12 md:grid-cols-[220px_1fr_220px] md:pt-32">
         <aside className="hidden md:flex flex-col gap-6 opacity-85">
           <div className="text-xs uppercase hero-kicker">Profile</div>
           <div className="hero-stat text-sm">Riyadh, SA</div>
           <div className="hero-stat text-sm">3+ yrs exp</div>
           <div className="hero-stat text-sm">APIs • 3D UI • Automation</div>
         </aside>
-        <div className="text-center md:text-left">
+        <div className="text-left">
           <div className="hero-kicker uppercase">JAVA FULLSTACK • PRODUCTION SUPPORT</div>
           <h1 className="font-hero text-glow text-center md:text-left text-5xl md:text-7xl tracking-[0.18em]">
             ATHUL P SUDHEER
