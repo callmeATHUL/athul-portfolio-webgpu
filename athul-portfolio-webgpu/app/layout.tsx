@@ -3,9 +3,9 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Space_Grotesk, Bebas_Neue, Poppins } from "next/font/google";
 import "./globals.css";
-import dynamic from 'next/dynamic'
-const BackgroundCanvas = dynamic(() => import('@/components/BackgroundCanvas'), { ssr: false, loading: () => null })
-const BackgroundControls = dynamic(() => import('@/components/BackgroundCanvas').then(m => m.BackgroundControls), { ssr: false, loading: () => null })
+import BackgroundCanvas, {
+  BackgroundControls,
+} from "@/components/BackgroundCanvas";
 
 export const metadata: Metadata = {
   title: "Syntax Mind — Portfolio",
