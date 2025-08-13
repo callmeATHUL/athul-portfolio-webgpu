@@ -3,9 +3,9 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Space_Grotesk, Bebas_Neue, Poppins } from "next/font/google";
 import "./globals.css";
-import BackgroundCanvas, {
-  BackgroundControls,
-} from "@/components/BackgroundCanvas";
+import dynamic from 'next/dynamic'
+const BackgroundCanvas = dynamic(() => import('@/components/BackgroundCanvas'), { ssr: false, loading: () => null })
+const BackgroundControls = dynamic(() => import('@/components/BackgroundCanvas').then(m => m.BackgroundControls), { ssr: false, loading: () => null })
 
 export const metadata: Metadata = {
   title: "Syntax Mind — Portfolio",
@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     shortcut: "/placeholder-logo.png",
     apple: "/placeholder-logo.png",
   },
+  other: {
+    'color-scheme': 'dark',
+    'viewport': 'width=device-width, initial-scale=1, viewport-fit=cover',
+  }
 };
 
 const Display = Space_Grotesk({
@@ -66,7 +70,7 @@ html {
           }}
         />
       </head>
-      <body className="main-body text-black">
+      <body className="main-body text-black antialiased selection:bg-white/10 selection:text-white">
         <BackgroundCanvas />
         <div className="relative">{children}</div>
         <BackgroundControls />

@@ -49,12 +49,14 @@ export async function loadGsap() {
   // TODO: use in your animation hooks:
   // const { gsap } = await import("gsap")
   // return gsap
+  if (typeof window === 'undefined') return undefined as any
   return (await import("gsap")).gsap;
 }
 export async function loadAnime() {
   // TODO: use in your animation hooks:
   // const anime = (await import("animejs")).default
   // return anime
+  if (typeof window === 'undefined') return undefined as any
   return (await import("animejs")).default;
 }
 
